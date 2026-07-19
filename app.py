@@ -1,13 +1,11 @@
 import streamlit as st
 import joblib
 import pandas as pd
-import gzip
 
-# لود مدل فشرده
+# لود مدل
 @st.cache_resource
 def load_model():
-    with gzip.open("mashhad_price_model.pkl.gz", "rb") as f:
-        model = joblib.load(f)
+    model = joblib.load("linear_model.pkl")
     columns = joblib.load("columns.pkl")
     return model, columns
 
